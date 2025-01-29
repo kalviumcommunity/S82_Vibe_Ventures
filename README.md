@@ -29,10 +29,10 @@ This will provide information about places based on high reviews and ratings and
 React.js Dynamic and responsive interface for the user.
 ### Backend:
 
-For server-side logic and database management use Node.js.
+For server-side logic and database management using Node.js.
 ### Database:
 
-Use a combination of either MongoDB or MySQL for storing user information, destinations, and reviews.
+Using a combination of either MongoDB or MySQL for storing user information, destinations, and reviews.
 AI and Machine Learning:
 
 Recommendation engine will use TensorFlow.
