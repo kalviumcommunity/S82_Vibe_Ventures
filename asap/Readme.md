@@ -45,4 +45,4 @@ Implement APIs for Skyscanner, TripAdvisor, and OpenWeather.
 
 ### Why This Project?
 
-This project aims to enhance people's interest based on their moods and revolutionize the travel experience. Working on this project will improve skills in both front-end and back-end development .
+This project aims to enhance people's interest based on their moods and revolutionize the travel experience. Working on this project will improve skills in both front-end and back-end development.
