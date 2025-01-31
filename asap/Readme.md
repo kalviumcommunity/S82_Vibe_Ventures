@@ -1,4 +1,4 @@
-# Vibrator Ventures: Your mood, Your Destination
+# Vibe Ventures: Your mood, Your Destination
 
 ## Project Overview:
 
@@ -39,6 +39,6 @@ Recommendation engine will use TensorFlow.
 ### APIs:
 
 Implement APIs for Skyscanner, TripAdvisor, and OpenWeather.
-Why This Project:
+### Why This Project:
 
 This is to increase the interest for people based on their mood and to revolutionize the travel experience. Working on this project will increase the skills in both front-end and back-end.
