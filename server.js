@@ -7,7 +7,7 @@ const port = process.env.PORT
 const app = express()
 app.use(cors())
 app.use(express.json())
-app.get('/',(req,res)=>{
+app.get('/ping',(req,res)=>{
     res.status(400).send('hello world')
 })
 
