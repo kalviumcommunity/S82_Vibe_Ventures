@@ -8,7 +8,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 app.get('/ping',(req,res)=>{
-    res.status(400).send('hello world')
+    res.status(200).send('hello world')
 })
 
 
