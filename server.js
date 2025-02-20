@@ -1,17 +1,32 @@
-const express = require('express')
-require('dotenv').config()
-const cors = require('cors')
+const express = require('express');
+require('dotenv').config();
+const mongoose = require('mongoose');
 
-const port = process.env.PORT 
+const app = express();
+app.use(express.json());
 
-const app = express()
-app.use(cors())
-app.use(express.json())
-app.get('/ping',(req,res)=>{
-    res.status(400).send('hello world')
-})
+mongoose.connect(process.env.MONGODB_URL)
+  .then(() => console.log('Connected to Database'))
+  .catch(err => console.error(err));
 
+const ObjectModel = require('./schema');
 
-app.listen(port,()=>{
-    console.log(`server connected successfully at ${port}`)
-})
+app.post('/objects', async (req, res) => {
+  try {
+    res.status(201).json(await new ObjectModel(req.body).save());
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+});
+
+app.get('/objects', async (req, res) => {
+  try {
+    res.json(await ObjectModel.find());
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+app.get('/ping', (req, res) => res.send('hello world'));
+
+app.listen(3000, () => console.log('Server running on port 3000'));
