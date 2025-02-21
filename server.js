@@ -1,13 +1,15 @@
 const express = require('express');
-require('dotenv').config();
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 const app = express();
+const PORT = 5555;
+
 app.use(express.json());
 
-mongoose.connect(process.env.MONGODB_URL)
+mongoose.connect(`mongodb://localhost:27017`)
   .then(() => console.log('Connected to Database'))
-  .catch(err => console.error(err));
+  .catch(console.error);
 
 const ObjectModel = require('./schema');
 
@@ -29,4 +31,4 @@ app.get('/objects', async (req, res) => {
 
 app.get('/ping', (req, res) => res.send('hello world'));
 
-app.listen(3000, () => console.log('Server running on port 3000'));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
