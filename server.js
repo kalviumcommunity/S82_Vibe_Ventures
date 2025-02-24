@@ -10,8 +10,15 @@ app.use(express.json());
 mongoose.connect(`mongodb://localhost:27017`)
   .then(() => console.log('Connected to Database'))
   .catch(console.error);
-
+  
 const ObjectModel = require('./schema');
+
+app.get("/",(req,res)=>{
+  const dbState = mongoose.connection.readyState;
+  if(dbState === 1){
+  res.send("Connected to Database");
+  }
+})
 
 app.post('/objects', async (req, res) => {
   try {
