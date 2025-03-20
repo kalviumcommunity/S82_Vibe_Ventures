@@ -6,8 +6,15 @@ const app = express();
 const PORT = 5555;
 
 app.use(express.json());
+const cors = require('cors');
 
-mongoose.connect(`mongodb://localhost:27017`)
+app.use(cors({
+    origin: "http://localhost:5173", // Allow frontend requests
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true
+}));
+
+mongoose.connect(process.env.MONGO_URL)
   .then(() => console.log('Connected to Database'))
   .catch(console.error);
 

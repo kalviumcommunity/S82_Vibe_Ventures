@@ -11,6 +11,4 @@ const objectschema = new mongoose.Schema({
     noofsiblings:{type:Number},
     date:{type:Date}
 })
-const objects = mongoose.model("object",objectschema)
-
-module.exports = mongoose.model('objects',objectschema)
+module.exports = mongoose.model("object",objectschema)
