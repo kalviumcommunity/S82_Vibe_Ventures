@@ -1,0 +1,79 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 20px auto;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #f9f9f9;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+option {
+    font-size: 14px;
+}
+
+@media (max-width: 400px) {
+    .main {
+        width: 90%;
+        padding: 15px;
+    }
+}
+
+/* Buttons container */
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Places buttons at opposite ends */
+    margin-top: 10px;
+}
+
+/* Style for Back and Submit buttons */
+.back, .submit {
+    padding: 8px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Back button styling */
+.back {
+    background-color: #6c757d;
+    color: white;
+}
+
+.back:hover {
+    background-color: #5a6268;
+}
+
+/* Submit button styling */
+.submit {
+    background-color: #007bff;
+    color: white;
+}
+
+.submit:hover {
+    background-color: #0056b3;
+}

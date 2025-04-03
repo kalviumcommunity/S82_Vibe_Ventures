@@ -21,13 +21,7 @@ mongoose.connect(process.env.MONGO_URL)
 const ObjectModel = require('./schema');
 
 app.get("/",(req,res)=>{
-  const dbState = mongoose.connection.readyState;
-  if(dbState === 1){
-  res.send("Connected to Database 🤩");
-  }
-  else{
-    res.send("Not Connected to Database 😥");
-  }
+  res.status(200).send('connected');
 })
 
 app.post('/objects', async (req, res) => {
