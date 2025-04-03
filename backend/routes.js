@@ -1,7 +1,7 @@
 const express = require('express');
 
 const router = express.Router();
-router.get('/getdata',async()=>{
+router.get('/getdata',async(req,res)=>{
     try{
         const data={
             name:"hello",
@@ -15,6 +15,6 @@ router.get('/getdata',async()=>{
         res.status(500).send(e.message)
     }
 })
-router.post()
+
 
 module.exports = router
