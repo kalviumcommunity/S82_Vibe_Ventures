@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-
+import Form from "./form";
+import {Link} from 'react-router-dom'
 function Home() {
   const [objects, setObjects] = useState([]);
 
@@ -13,6 +14,9 @@ function Home() {
   return (
     <div>
       <h1>Hello this is my Homepage</h1>
+      <Link to='/search'>
+      <button>Search for place</button>
+      </Link>
       <h2>Data from cluster</h2>
       {objects.length > 0 ? (
         <ul>
