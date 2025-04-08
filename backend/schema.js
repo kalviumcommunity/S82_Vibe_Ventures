@@ -9,6 +9,12 @@ const objectschema = new mongoose.Schema({
     fatherName:{type:String},
     motherName:{type:String},
     noofsiblings:{type:Number},
-    date:{type:Date}
+    date:{type:Date},
+
+    created_by:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'user',
+        required:true
+    }
 })
 module.exports = mongoose.model("object",objectschema)
