@@ -19,22 +19,68 @@ mongoose.connect(process.env.MONGO_URL)
   .catch(console.error);
 
 const ObjectModel = require('./schema');
+const user = require('./user')
 
 app.get("/",(req,res)=>{
   res.status(200).send('connected');
 })
 
+app.post('/users',async(req,res)=>{
+  try{
+    const newuser= new user(req.body);
+    const saved = await newuser.save();
+    res.status(200).send(saved);
+  }
+  catch(err){
+    res.status(400).send(err);
+  }
+})
+
+app.get('/users',async(req,res)=>{
+  try{
+    const users = user.find();
+    res.status(200).send(users)
+  }
+  catch(err)
+  {
+    res.status(400).send(err)
+  }
+})
 app.post('/objects', async (req, res) => {
   try {
-    res.status(201).json(await new ObjectModel(req.body).save());
+    const { firstName, lastName, dob, address, message, fatherName, motherName, noofsiblings, date, created_by } = req.body;
+
+    if (!created_by) {
+      return res.status(400).json({ message: 'created_by is required' });
+    }
+
+    const newObject = new ObjectModel({
+      firstName, lastName, dob, address, message, fatherName, motherName, noofsiblings, date, created_by
+    });
+
+    const saved = await newObject.save();
+    res.status(201).json(saved);
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
 });
 
+// Get all objects
 app.get('/objects', async (req, res) => {
   try {
-    res.json(await ObjectModel.find());
+    const objects = await ObjectModel.find().populate('created_by');
+    res.json(objects);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+// Get objects by user ID
+app.get('/objects/by-user/:userId', async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const objects = await ObjectModel.find({ created_by: userId });
+    res.json(objects);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
