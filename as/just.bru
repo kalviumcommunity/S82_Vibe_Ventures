@@ -1,0 +1,18 @@
+meta {
+  name: just
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:5555/auth/login
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "username":"helloe",
+    "email":"ghjnbvgyujhn@gmail.com"
+  }
+}
