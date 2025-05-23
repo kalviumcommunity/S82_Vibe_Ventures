@@ -1,0 +1,27 @@
+meta {
+  name: ytc
+  type: http
+  seq: 4
+}
+
+get {
+  url: http://localhost:5555/objects/by-user/680352fa035a36b9815bf604
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "dob": 1990,
+    "address": "123 ",
+    "message": "Hello World!",
+    "fatherName": "John Sr.",
+    "motherName": "Jane Doe",
+    "noofsiblings": 2,
+    "date": "2025-04-19T00:00:00.000Z",
+    "created_by": "680352fa035a36b9815bf604"
+  }
+  
+}

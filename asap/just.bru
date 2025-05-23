@@ -4,8 +4,16 @@ meta {
   seq: 2
 }
 
-get {
-  url: 
-  body: none
+post {
+  url: http://localhost:5555/users
+  body: json
   auth: none
+}
+
+body:json {
+  {
+    "email": "ar@example.com",
+    "password": "securepassw123"
+  }
+  
 }
